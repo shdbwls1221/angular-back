@@ -1,5 +1,6 @@
 package com.yoojin.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,18 @@ public class GroupServiceImpl implements GroupService {
 	GroupRepository groupRepository;
 	
 	@Override
-	public Optional<Group> getGroupById(long id) {
-		return groupRepository.findById(id);
+	public List<Group> getGroups() {
+		return (List<Group>) groupRepository.findAll();
 	}
+	
+	@Override
+	public Optional<Group> getGroupById(long groupId) {
+		return (Optional<Group>) groupRepository.findById(groupId);
+	}
+	
+	@Override
+	public void addGroup(Group group) {
+		groupRepository.save(group);
+	}
+	
 }

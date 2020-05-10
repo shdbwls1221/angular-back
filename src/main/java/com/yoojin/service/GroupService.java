@@ -1,10 +1,15 @@
 package com.yoojin.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.yoojin.dto.Group;
 
 public interface GroupService {
 
-	public Optional<Group> getGroupById(long id);
+	public List<Group> getGroups();
+	
+	public Optional<Group> getGroupById(long groupId);
+	
+	public void addGroup(Group group);
 }
