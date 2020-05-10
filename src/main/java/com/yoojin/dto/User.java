@@ -5,25 +5,28 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import lombok.Setter;
-import lombok.Getter;
-
-@Setter
-@Getter
 @Entity
-@JsonIgnoreProperties(ignoreUnknown = true)	//모든 필드를 변환할 필요가 없을 때
+@SequenceGenerator(name="USER_SEQ_GEN", sequenceName = "USER_SEQ", initialValue = 1, allocationSize = 1)
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name="USER_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USER_SEQ_GEN")
 	private long id;
-	@Column
+	
+	@Column(name="USER_NAME")
 	private String name;
-	@Column
+	
+	@Column(name="USER_EMAIL")
 	private String email;
+	
+	@ManyToOne
+	@JoinColumn(name="GROUP_SEQ")
+	private Group group;
 	
 	public User() {	}
 	
@@ -32,9 +35,36 @@ public class User {
 		this.email = email;
 	}
 
-	@Override
-	public String toString() {
-		return "{\"id\": \"" + id + "\", \"name\": \"" + name + "\", \"email\": \"" + email + "\"}";
+	public long getId() {
+		return id;
 	}
-	
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Group getGroup() {
+		return group;
+	}
+
+	public void setGroup(Group group) {
+		this.group = group;
+	}
+
 }
