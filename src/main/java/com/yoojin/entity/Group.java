@@ -1,4 +1,4 @@
-package com.yoojin.dto;
+package com.yoojin.entity;
 
 import java.util.ArrayList;
 import java.util.List;

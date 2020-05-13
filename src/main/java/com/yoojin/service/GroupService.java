@@ -3,7 +3,7 @@ package com.yoojin.service;
 import java.util.List;
 import java.util.Optional;
 
-import com.yoojin.dto.Group;
+import com.yoojin.entity.Group;
 
 public interface GroupService {
 

@@ -8,10 +8,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.yoojin.dao.GroupRepository;
-import com.yoojin.dao.UserRepository;
-import com.yoojin.dto.Group;
-import com.yoojin.dto.User;
+import com.yoojin.entity.Group;
+import com.yoojin.entity.User;
+import com.yoojin.repository.GroupRepository;
+import com.yoojin.repository.UserRepository;
 
 @SpringBootApplication
 public class YoojinApplication implements CommandLineRunner {

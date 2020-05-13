@@ -1,4 +1,4 @@
-package com.yoojin.dto;
+package com.yoojin.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -2,7 +2,7 @@ package com.yoojin.service;
 
 import java.util.List;
 
-import com.yoojin.dto.User;
+import com.yoojin.entity.User;
 
 public interface UserService {
 

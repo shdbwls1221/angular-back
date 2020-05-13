@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.yoojin.dao.UserRepository;
-import com.yoojin.dto.User;
+import com.yoojin.entity.User;
+import com.yoojin.repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {

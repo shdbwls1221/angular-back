@@ -8,9 +8,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.yoojin.dto.Group;
+import com.yoojin.entity.Group;
 import com.yoojin.service.GroupService;
 
 @RestController
@@ -31,10 +32,9 @@ public class GroupRestController {
 	}
 	
 	@PutMapping(value="/group/{groupId}")
-	public void modifyGroup(@PathVariable long groupId) {
-		Group chngGroup = new Group("수정");
-		Group group = groupService.getGroupById(groupId).get();
-		group.setName(chngGroup.getName());
-		groupService.addGroup(group);
+	public void modifyGroup(@PathVariable long groupId, @RequestBody Group group) {
+		Group mdfyGroup = groupService.getGroupById(groupId).get();
+		mdfyGroup.setName(group.getName());
+		groupService.addGroup(mdfyGroup);
 	}
 }
