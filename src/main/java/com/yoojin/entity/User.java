@@ -1,7 +1,11 @@
 package com.yoojin.entity;
 
+import java.util.ArrayList;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -57,6 +61,11 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	public Group getGroup() {
+		group.setUsers(new ArrayList<>());
+		return group;
 	}
 
 	public void setGroup(Group group) {

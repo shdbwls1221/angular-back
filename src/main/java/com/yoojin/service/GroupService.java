@@ -7,9 +7,11 @@ import com.yoojin.entity.Group;
 
 public interface GroupService {
 
-	public List<Group> getGroups();
+	public List<Group> getGroups() throws Exception;
 	
-	public Optional<Group> getGroupById(long groupId);
+	public Optional<Group> getGroupById(long groupId) throws Exception;
 	
-	public void addGroup(Group group);
+	public void addGroup(Group group) throws Exception;
+	
+	public void deleteGroupById(long groupId) throws Exception;
 }

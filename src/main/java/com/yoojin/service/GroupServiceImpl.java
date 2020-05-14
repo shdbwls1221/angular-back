@@ -18,18 +18,23 @@ public class GroupServiceImpl implements GroupService {
 	GroupRepository groupRepository;
 	
 	@Override
-	public List<Group> getGroups() {
+	public List<Group> getGroups() throws Exception {
 		return (List<Group>) groupRepository.findAll();
 	}
 	
 	@Override
-	public Optional<Group> getGroupById(long groupId) {
+	public Optional<Group> getGroupById(long groupId) throws Exception {
 		return (Optional<Group>) groupRepository.findById(groupId);
 	}
 	
 	@Override
-	public void addGroup(Group group) {
+	public void addGroup(Group group) throws Exception {
 		groupRepository.save(group);
+	}
+	
+	@Override
+	public void deleteGroupById(long groupId) throws Exception {
+		groupRepository.deleteById(groupId);
 	}
 	
 }
